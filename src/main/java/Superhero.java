@@ -36,8 +36,8 @@ public class Superhero {
         return strength;
     }
 
-    /*public String toString(){
-        return;
-    }*/
+    public String toString(){
+        return realname +" "+ supername;
+    }
 
 }

@@ -38,7 +38,12 @@ public class Main {
             database.createsuperhero(supername, realname, superpower, creation, strength, ishuman);
         } else if (menuvalg == 9) {
             System.out.println("ses");
-        }
+        } /*else if (menuvalg ==4){
+            for(Object person:Database.superheroes){
+                System.out.println(person);
+            }
+
+        }*/
 
 
         }while (menuvalg!=9);
