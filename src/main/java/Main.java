@@ -1,3 +1,5 @@
+import java.sql.SQLOutput;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Main {
@@ -14,6 +16,7 @@ public class Main {
 
 
         System.out.println("press 1 for making a superhero");
+        System.out.println("press 4 for list");
         System.out.println("press 9 exiting this menu");
         menuvalg = scan.nextInt();
         scan.nextLine();
@@ -38,12 +41,16 @@ public class Main {
             database.createsuperhero(supername, realname, superpower, creation, strength, ishuman);
         } else if (menuvalg == 9) {
             System.out.println("ses");
-        } /*else if (menuvalg ==4){
-            for(Object person:Database.superheroes){
-                System.out.println(person);
-            }
+            } else if (menuvalg ==4){
+                    System.out.println("list of superheroes");
+                for(Object person: database.getSuperheroes()){
+                    System.out.println(" ");
+                    System.out.println("----------------------");
+                    System.out.println(person);
+                    //System.out.println(database.getSuperheroes());
+                }
 
-        }*/
+        }
 
 
         }while (menuvalg!=9);

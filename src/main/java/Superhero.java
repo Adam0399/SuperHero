@@ -37,7 +37,8 @@ public class Superhero {
     }
 
     public String toString(){
-        return realname +" "+ supername;
+        return "Superhero name: "+supername+"\nSuperpowers: "+superpower+"\nRealname: "+realname+"\nCreated: "+creation+
+                "\nstrength: "+strength+"\nishuman: "+ishuman;
     }
 
 }
