@@ -17,6 +17,7 @@ public class Main {
 
         System.out.println("press 1 for making a superhero");
         System.out.println("press 4 for list");
+        System.out.println("press 6 to search for a hero");
         System.out.println("press 9 exiting this menu");
         menuvalg = scan.nextInt();
         scan.nextLine();
@@ -33,26 +34,50 @@ public class Main {
             int creation = scan.nextInt();
             System.out.println("how Strong is your hero");
             int strength = scan.nextInt();
-            System.out.println("is your hero human?");
-            boolean ishuman = scan.nextBoolean();
-
-
+            System.out.println("is your hero human?(y or n)");
+            Boolean ishuman = null;
+            String answer;
+            do {
+            answer = scan.next();
+                if (answer.equals("y")) {
+                    ishuman = true;
+                    break;
+                } else if (answer.equals("n")) {
+                    ishuman = false;
+                    break;
+                } else {
+                    System.out.println("Invalid input");
+                }
+            } while (answer != "y" && answer != "n");
 
             database.createsuperhero(supername, realname, superpower, creation, strength, ishuman);
         } else if (menuvalg == 9) {
             System.out.println("ses");
             } else if (menuvalg ==4){
                     System.out.println("list of superheroes");
-                for(Object person: database.getSuperheroes()){
+                for(Superhero superhero: database.getSuperheroes()){
                     System.out.println(" ");
                     System.out.println("----------------------");
-                    System.out.println(person);
+                    System.out.println("Super hero name: "+superhero.getSupername());
+                    System.out.println("Realname: "+superhero.getRealname());
+                    System.out.println("Superpowers: "+superhero.getSuperpower());
+                    System.out.println("Created: "+superhero.getCreation());
+                    System.out.println("Strength: "+superhero.getStrength());
+                    System.out.println("Is human?: "+superhero.ishuman);
+
                     //System.out.println(database.getSuperheroes());
                 }
 
+        } else if (menuvalg ==6){
+            System.out.println("which hero do you want");
+            String searchTerm = scan.nextLine();
+            for (Superhero superhero:database.getSuperheroes()){
+
+            }
         }
 
 
         }while (menuvalg!=9);
+
     }
 }

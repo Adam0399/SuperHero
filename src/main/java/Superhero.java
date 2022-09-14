@@ -5,7 +5,8 @@ public class Superhero {
     boolean ishuman;
     String realname;
     String superpower;
-    public Superhero( String supername,String realname,String superpower, int creation, int strength, boolean ishuman) {
+
+    public Superhero(String supername, String realname, String superpower, int creation, int strength, boolean ishuman) {
         this.supername = supername;
         this.realname = realname;
         this.superpower = superpower;
@@ -18,13 +19,15 @@ public class Superhero {
         return creation;
     }
 
-    public String getSupername(){
+    public String getSupername() {
         return supername;
     }
-    public String getRealname(){
+
+    public String getRealname() {
         return realname;
     }
-    public String getSuperpower(){
+
+    public String getSuperpower() {
         return superpower;
     }
 
@@ -35,10 +38,21 @@ public class Superhero {
     public int getStrength() {
         return strength;
     }
+    public String ishuman() {
 
-    public String toString(){
-        return "Superhero name: "+supername+"\nSuperpowers: "+superpower+"\nRealname: "+realname+"\nCreated: "+creation+
-                "\nstrength: "+strength+"\nishuman: "+ishuman;
+        if (this.ishuman == true) {
+            return "Yes";
+        }else return "No";
     }
+
+    public String toString() {
+        return "Superhero name: " + supername +
+                "\nSuperpowers: " + superpower +
+                "\nRealname: " + realname +
+                "\nCreated: " + creation +
+                "\nstrength: " + strength +
+                "\nis human?: " + ishuman();
+    }
+
 
 }
