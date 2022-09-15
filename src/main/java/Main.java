@@ -64,6 +64,7 @@ public class Main {
                     System.out.println("Created: "+superhero.getCreation());
                     System.out.println("Strength: "+superhero.getStrength());
                     System.out.println("Is human?: "+superhero.ishuman);
+                    System.out.println("----------------------");
 
                     //System.out.println(database.getSuperheroes());
                 }
@@ -71,9 +72,22 @@ public class Main {
         } else if (menuvalg ==6){
             System.out.println("which hero do you want");
             String searchTerm = scan.nextLine();
-            for (Superhero superhero:database.getSuperheroes()){
+            if (database.searchfor(searchTerm)!=null){
 
+            System.out.println(database.searchfor(searchTerm));
+            }else {
+                System.out.println("no match found");
             }
+
+
+                /*if(searchterm)
+                if (searchTerm==superhero.getSupername().toLowerCase()){
+                    System.out.println("hej");
+                } else {
+                    System.out.println("invalid");
+                }*/
+
+
         }
 
 
