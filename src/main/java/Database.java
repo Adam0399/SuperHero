@@ -18,11 +18,18 @@ public class Database {
     public Superhero searchfor(String searchTerm) {
         for (Superhero superhero:getSuperheroes()) {
             if (superhero.getSupername().toLowerCase().contains(searchTerm.toLowerCase())){
-            return superhero;   
+            return superhero;
             }
-
         }
         return null;
+    }
+    public ArrayList<Superhero> SearchAndEdit(String searchAndEditTerm){
+        ArrayList<Superhero> søgeResultat = new ArrayList<>();
+        for (Superhero hero : superheroes){
+            if (hero.getSupername().contains(searchAndEditTerm))
+            søgeResultat.add(hero);
+            return superheroes;
+        }return null;
     }
 
 }

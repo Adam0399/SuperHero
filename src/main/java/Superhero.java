@@ -44,6 +44,24 @@ public class Superhero {
             return "Yes";
         }else return "No";
     }
+    public void setRealname(String newRealname){
+        realname=newRealname;
+    }
+    public void setSupername(String newSuperName){
+        supername=newSuperName;
+    }
+    public void setSuperpower(String newSuperPower){
+        superpower=newSuperPower;
+    }
+    public void setStrength(String newStrength){
+        strength=Integer.parseInt(newStrength);
+    }
+    public void setCreation(String newCreation){
+        creation=Integer.parseInt(newCreation);
+    }
+    public void setIshuman(String newishuman){
+        ishuman=Boolean.parseBoolean(newishuman);
+    }
 
     public String toString() {
         return "Superhero name: " + supername +

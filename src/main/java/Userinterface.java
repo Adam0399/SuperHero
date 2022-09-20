@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Userinterface {
@@ -8,6 +10,7 @@ public class Userinterface {
         System.out.println("press 1 for making a superhero");
         System.out.println("press 4 for list");
         System.out.println("press 6 to search for a hero");
+        System.out.println("press 7 to edit a hero");
         System.out.println("press 9 exiting this menu");
 
     }
@@ -68,10 +71,66 @@ public class Userinterface {
 
     }
 
+    private void getSearchAndEdit(){
+        System.out.println("indtast det du vil søge efter");
+        String searchAndEditTerm = scan.next();
+        scan.nextLine();
+        ArrayList<Superhero> søgeResultat = database.SearchAndEdit(searchAndEditTerm);
+        database.SearchAndEdit(searchAndEditTerm);
+        try{
+
+        if (database.SearchAndEdit(searchAndEditTerm)!=null){
+            for(int i = 0; i < søgeResultat.size();i++){
+                System.out.println(i+1+":"+søgeResultat.get(i));
+            }
+            System.out.println("indtast nr på den du vil redigere");
+            int nr = scan.nextInt();
+            scan.nextLine();
+            Superhero editHero = søgeResultat.get(nr - 1);
+            System.out.println("Editsuperhelt: "+editHero.getSupername());
+            System.out.println("rediger og tryk enter hvis du ikke vil rediger");
+            System.out.println("Superheltenavn "+editHero.getSupername());
+            String newSuperHeroName = scan.nextLine();
+            if (!newSuperHeroName.isEmpty()){
+                editHero.setSupername(newSuperHeroName);
+            }
+            System.out.println("realname: "+editHero.getRealname());
+            String newrealname = scan.nextLine();
+            if (!newrealname.isEmpty()){
+                editHero.setRealname(newrealname);
+            }
+            System.out.println("superpower: "+editHero.getSuperpower());
+            String newSuperPower = scan.nextLine();
+            if (!newSuperPower.isEmpty()){
+                editHero.setSuperpower(newSuperPower);
+            }
+            System.out.println("creation: "+editHero.getCreation());
+            String newCreation = scan.nextLine();
+            if(!newCreation.isEmpty()){
+                editHero.setCreation(newCreation);
+            }
+            System.out.println("Strength: "+editHero.getStrength());
+            String newStrength = scan.nextLine();
+            if(!newStrength.isEmpty()){
+                editHero.setStrength(newStrength);
+            }
+            System.out.println("human or not (y or n)"+editHero.ishuman());
+            String newIshuman = scan.nextLine();
+            if(!newIshuman.isEmpty()){
+                editHero.setIshuman(newIshuman);
+            }
+        } else{
+            System.out.println("der findes ingen superhelt som hedder "+searchAndEditTerm);
+        }
+        }catch(IndexOutOfBoundsException e){
+            System.out.println("warning input invalid");
+        }
+    }
     public void startup(){
     Userinterface program = new Userinterface();
-    int menuvalg;
+    int menuvalg = 0;
     do {
+        try{
 
         program.getMenu();
         menuvalg = scan.nextInt();
@@ -87,6 +146,13 @@ public class Userinterface {
 
         } else if (menuvalg ==6){
             program.getSearch();
+        }
+        else if (menuvalg ==7){
+            program.getSearchAndEdit();
+        }
+        }catch (InputMismatchException e){
+            System.out.println("Warning wrong input");
+            scan.nextLine();
         }
     }while (menuvalg!=9);
 
