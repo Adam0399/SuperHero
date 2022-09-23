@@ -2,10 +2,10 @@ import java.sql.SQLOutput;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class Main {
-    public static void main(String[] args) {
-        Userinterface ui = new Userinterface();
-        ui.startup();
+    public class Main {
+        public static void main(String[] args) {
+            Userinterface ui = new Userinterface();
+            ui.startup();
 
+        }
     }
-}

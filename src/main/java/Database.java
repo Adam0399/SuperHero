@@ -31,5 +31,26 @@ public class Database {
             return superheroes;
         }return null;
     }
+    public void removeHero(String removeTerm){
+        for (Superhero hero : getSuperheroes()){
+            if (removeHero(removeTerm).getSupername().toLowerCase().contains(searchTerm.toLowerCase())){
 
+                    removeTerm.remove(hero);
+
+            }
+        }
+    }
+
+
+    /*public ArrayList<Superhero> remove(String removeTerm) {
+        ArrayList<Superhero> søgeResultat = new ArrayList<>();
+        for (Superhero hero : superheroes) {
+            if (hero.getSupername().contains(removeTerm))
+                søgeResultat.remove(hero);
+            return superheroes;
+        }
+        return null;*/
 }
+
+
+

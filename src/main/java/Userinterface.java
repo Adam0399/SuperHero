@@ -11,6 +11,7 @@ public class Userinterface {
         System.out.println("press 4 for list");
         System.out.println("press 6 to search for a hero");
         System.out.println("press 7 to edit a hero");
+        System.out.println("press 8 to remove a hero from the database");
         System.out.println("press 9 exiting this menu");
 
     }
@@ -69,6 +70,7 @@ public class Userinterface {
             System.out.println("no match found");
         }
 
+
     }
 
     private void getSearchAndEdit(){
@@ -89,7 +91,7 @@ public class Userinterface {
             Superhero editHero = søgeResultat.get(nr - 1);
             System.out.println("Editsuperhelt: "+editHero.getSupername());
             System.out.println("rediger og tryk enter hvis du ikke vil rediger");
-            System.out.println("Superheltenavn "+editHero.getSupername());
+            System.out.println("Superheltenavn: "+editHero.getSupername());
             String newSuperHeroName = scan.nextLine();
             if (!newSuperHeroName.isEmpty()){
                 editHero.setSupername(newSuperHeroName);
@@ -126,6 +128,11 @@ public class Userinterface {
             System.out.println("warning input invalid");
         }
     }
+    private void getremoveHero(){
+        System.out.println("søg efter den du vil slette");
+        String removeTerm = scan.nextLine();
+
+    }
     public void startup(){
     Userinterface program = new Userinterface();
     int menuvalg = 0;
@@ -149,6 +156,9 @@ public class Userinterface {
         }
         else if (menuvalg ==7){
             program.getSearchAndEdit();
+        }
+        else if (menuvalg ==8){
+            program.getremoveHero();
         }
         }catch (InputMismatchException e){
             System.out.println("Warning wrong input");
